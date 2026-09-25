@@ -3,182 +3,130 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>am — activate by vinzy</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<title>AM PREMIUM // by VINZY</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050507;--acc:#00FF7F;--acc2:#00E070;--line:rgba(255,255,255,.08);--dim:#6B7280}
+:root{--lime:#C6FF00;--lime2:#A3E635;--bg:#0A0A0A;--card:#141414;--border:rgba(255,255,255,.08);--muted:#777}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:#fff;font-family:'Space Grotesk',sans-serif;min-height:100vh;display:flex;justify-content:center;padding:32px 16px;overflow-x:hidden;position:relative}
-body::before{content:'';position:fixed;left:-15%;top:-20%;width:70%;height:70%;background:radial-gradient(circle at 30% 30%,rgba(0,255,127,.18),transparent 60%);filter:blur(60px);pointer-events:none}
-body::after{content:'';position:fixed;right:-15%;bottom:-20%;width:60%;height:60%;background:radial-gradient(circle at 70% 70%,rgba(0,255,127,.1),transparent 60%);filter:blur(80px);pointer-events:none}
-.wrap{width:100%;max-width:460px;position:relative;z-index:2}
-header{margin-bottom:22px}
-.brand{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.25em;color:var(--dim);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.brand::before{content:'';width:6px;height:6px;background:var(--acc);border-radius:50%;box-shadow:0 0 12px var(--acc);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-header h1{font-size:38px;font-weight:700;line-height:.9;letter-spacing:-.02em}
-header h1 i{font-style:normal;color:var(--acc);text-shadow:0 0 30px rgba(0,255,127,.5)}
-header p{font-family:'JetBrains Mono';font-size:11px;color:var(--dim);margin-top:8px;letter-spacing:.02em}
-.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,255,127,.08);border:1px solid rgba(0,255,127,.18);color:var(--acc);font-family:'JetBrains Mono';font-size:10px;padding:7px 14px;border-radius:999px;margin-top:16px}
-.steps{display:flex;gap:8px;margin:22px 0}
-.steps div{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 0;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;font-family:'JetBrains Mono';font-size:10.5px;color:var(--dim);transition:.25s;backdrop-filter:blur(12px)}
-.steps div.on{background:var(--acc);color:#000;border-color:var(--acc);font-weight:700;box-shadow:0 0 24px rgba(0,255,127,.45)}
-.steps div.done{background:rgba(0,255,127,.12);border-color:rgba(0,255,127,.2);color:var(--acc)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
-.stat{background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line);backdrop-filter:blur(20px);border-radius:18px;padding:18px 20px;position:relative;overflow:hidden}
-.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--acc),transparent);opacity:.5}
-.stat label{font-family:'JetBrains Mono';font-size:9.5px;letter-spacing:.15em;color:var(--dim);display:block}
-.stat b{font-family:'JetBrains Mono';font-size:30px;font-weight:700;display:block;margin-top:4px;line-height:1}
-.stat b.green{color:var(--acc);text-shadow:0 0 20px rgba(0,255,127,.5)}
-.panel{background:rgba(16,16,18,.85);border:1px solid var(--line);backdrop-filter:blur(24px);border-radius:22px;padding:22px;margin-bottom:14px;position:relative}
-.panel h2{font-size:15px;font-weight:700;margin-bottom:3px}
-.panel .hint{color:var(--dim);font-size:12.5px;margin-bottom:16px;font-family:'JetBrains Mono';font-size:11px}
-label{display:block;color:var(--dim);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
-input{width:100%;background:#08080A;border:1px solid rgba(255,255,255,.1);color:#fff;font-family:'JetBrains Mono';font-size:13px;padding:12px 14px;border-radius:12px;outline:none;transition:.2s}
-input:focus{border-color:var(--acc);box-shadow:0 0 0 4px rgba(0,255,127,.12);background:#0A0A0C}
-input::placeholder{color:#2a2a2e}
-button{background:var(--acc);color:#000;border:none;font-family:'JetBrains Mono';font-weight:700;font-size:12px;padding:12px 18px;border-radius:12px;cursor:pointer;transition:.2s;letter-spacing:.02em}
-button:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(0,255,127,.35);background:var(--acc2)}
-button:active{transform:translateY(0)}
-button.sec{background:rgba(255,255,255,.06);color:var(--dim);border:1px solid var(--line)}
-button.sec:hover{background:rgba(255,255,255,.1);color:#fff;box-shadow:none}
-button:disabled{opacity:.45;cursor:wait;transform:none!important}
-.msg{padding:10px 12px;font-family:'JetBrains Mono';font-size:11.5px;margin:12px 0;border-radius:10px;display:none;animation:slide .3s}
-@keyframes slide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.msg.err{display:block;background:rgba(224,82,82,.08);border:1px solid rgba(224,82,82,.2);color:#FF6B6B}
-.msg.ok{display:block;background:rgba(0,255,127,.08);border:1px solid rgba(0,255,127,.2);color:var(--acc)}
-.kv{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;font-family:'JetBrains Mono'}
-.kv:last-child{border:none}
-.kv b{color:var(--dim);font-weight:400;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
-.kv span{color:#fff;text-align:right;word-break:break-all;max-width:62%;font-size:12px}
-.tok{background:#08080A;border:1px solid rgba(255,255,255,.08);padding:10px 12px;font-size:10px;word-break:break-all;color:var(--dim);max-height:90px;overflow:hidden;border-radius:10px;font-family:'JetBrains Mono';line-height:1.5}
+body{background:var(--bg);color:#fff;font-family:'Syne',sans-serif;min-height:100vh;display:flex;justify-content:center;padding:20px 16px;position:relative;overflow-x:hidden}
+.bg-grid{position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse at center, black 40%, transparent 75%);opacity:.4;pointer-events:none}
+.orb{position:fixed;width:600px;height:600px;background:radial-gradient(circle, var(--lime) 0%, transparent 70%);opacity:.15;filter:blur(40px);pointer-events:none;top:-200px;left:50%;transform:translateX(-50%)}
+.wrap{width:100%;max-width:440px;position:relative;z-index:2}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;font-family:'Geist Mono';font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.dot{width:6px;height:6px;background:var(--lime);border-radius:50%;display:inline-block;box-shadow:0 0 10px var(--lime);animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero{margin-bottom:24px}
+.hero h1{font-size:58px;font-weight:800;letter-spacing:-.04em;line-height:.85;text-transform:uppercase}
+.hero h1 span{font-family:'Instrument Serif';font-style:italic;font-weight:400;text-transform:lowercase;color:var(--lime);display:block;font-size:46px;margin-top:-4px;letter-spacing:-.02em}
+.hero p{font-family:'Geist Mono';font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6;max-width:280px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#000;font-family:'Geist Mono';font-weight:700;font-size:10px;padding:8px 14px;border-radius:100px;margin-top:16px;letter-spacing:.05em}
+.steps{display:flex;gap:6px;margin:24px 0}
+.steps div{flex:1;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:11px 0;text-align:center;font-family:'Geist Mono';font-size:10px;font-weight:500;color:var(--muted);letter-spacing:.08em;transition:.3s}
+.steps div.on{background:var(--lime);color:#000;border-color:var(--lime);font-weight:700;box-shadow:0 0 20px rgba(198,255,0,.4)}
+.steps div.done{background:rgba(198,255,0,.1);border-color:rgba(198,255,0,.2);color:var(--lime)}
+.card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:24px;padding:20px;position:relative;overflow:hidden;margin-bottom:12px}
+.card::before{content:'';position:absolute;top:0;left:16px;right:16px;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent)}
+.stat-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:0;align-items:center}
+.stat b{font-size:32px;font-weight:800;letter-spacing:-.03em;font-family:'Syne';line-height:1}
+.stat b.lime{color:var(--lime)}
+.stat label{font-family:'Geist Mono';font-size:9px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:4px}
+.stat .sub{font-family:'Geist Mono';font-size:10px;color:var(--muted);margin-top:2px}
+.form-card{padding:24px}
+.form-card h2{font-size:20px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+.form-card .hint{font-family:'Geist Mono';font-size:11px;color:var(--muted);margin-bottom:20px}
+.field label{font-family:'Geist Mono';font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
+.input-wrap{position:relative}
+.input-wrap input{width:100%;background:#0E0E0E;border:1px solid var(--border);color:#fff;font-family:'Geist Mono';font-size:13px;padding:15px 16px;border-radius:14px;outline:none;transition:.2s}
+.input-wrap input:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,255,0,.15);background:#111}
+.btn{width:100%;background:var(--lime);color:#000;border:none;font-family:'Geist Mono';font-weight:700;font-size:12px;letter-spacing:.05em;padding:15px;border-radius:14px;margin-top:14px;cursor:pointer;transition:.2s;text-transform:uppercase}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(198,255,0,.35);filter:brightness(1.05)}
+.btn:active{transform:translateY(0)}
+.btn.sec{background:transparent;color:var(--muted);border:1px solid var(--border)}
+.msg{font-family:'Geist Mono';font-size:11px;padding:10px 12px;border-radius:10px;margin-top:12px;display:none}
+.msg.err{display:block;background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.2);color:#ff6b6b}
+.msg.ok{display:block;background:rgba(198,255,0,.08);border:1px solid rgba(198,255,0,.2);color:var(--lime)}
+.kv{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-family:'Geist Mono';font-size:11px}
+.kv b{color:var(--muted);font-weight:400;font-size:9px;text-transform:uppercase;letter-spacing:.1em}
+.kv span{max-width:60%;text-align:right;word-break:break-all}
+.tok{background:#0E0E0E;border:1px solid var(--border);padding:12px;border-radius:12px;font-size:9px;color:var(--muted);word-break:break-all;line-height:1.6;max-height:84px;overflow:hidden;font-family:'Geist Mono'}
 .row{display:flex;gap:8px;margin-top:12px}
-button.tiny{margin:0;padding:8px 14px;font-size:10.5px;border-radius:999px}
-footer{margin-top:28px;color:#2a2a2e;font-family:'JetBrains Mono';font-size:9.5px;text-align:center;letter-spacing:.05em}
+.tiny{padding:10px 14px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Geist Mono';text-transform:uppercase}
+footer{margin-top:32px;text-align:center;font-family:'Geist Mono';font-size:9px;color:#2a2a2a;letter-spacing:.08em;line-height:1.8}
 .hide{display:none!important}
 </style>
 </head>
 <body>
+<div class="bg-grid"></div><div class="orb"></div>
 <div class="wrap">
-
-<header>
-  <div class="brand">vinzystur.my.id • am premium system</div>
-  <h1>am <i>/</i> activate<br><span style="font-size:26px;color:var(--dim);font-weight:500;letter-spacing:0">by vinzy</span></h1>
-  <p>alight motion premium — magic link activation</p>
-  <div class="pill">● system active • 1.557 users onboarded</div>
-</header>
-
-<div class="steps">
-  <div id="n1" class="on">01 EMAIL</div>
-  <div id="n2">02 LINK</div>
-  <div id="n3">03 DONE</div>
-</div>
-
-<div class="panel" style="display:flex;justify-content:space-between;align-items:center;padding:18px 20px">
-  <div>
-    <div style="font-family:'JetBrains Mono';color:var(--dim);font-size:9.5px;letter-spacing:.15em">TOTAL AKTIVASI</div>
-    <div style="font-family:'JetBrains Mono';font-size:28px;font-weight:700;color:var(--acc)" id="st-total">-</div>
+  <div class="topbar"><span><span class="dot"></span> VINZYSTUR.MY.ID — EST 2024</span><span>SINGKAWANG • ID</span></div>
+  <div class="hero">
+    <h1>AM PREM<span style="color:var(--lime)">IUM</span><span>by vinzy</span></h1>
+    <p>magic link activation system — bypass without password, direct alight motion server.</p>
+    <div class="badge">● LIVE — 1.557+ ACTIVATED</div>
   </div>
-  <div style="width:1px;height:36px;background:var(--line)"></div>
-  <div style="text-align:right">
-    <div style="font-family:'JetBrains Mono';color:var(--dim);font-size:9.5px;letter-spacing:.15em">HARI INI</div>
-    <div style="font-family:'JetBrains Mono';font-size:28px;font-weight:700" id="st-today">-</div>
+  <div class="steps"><div id="n1" class="on">01 EMAIL</div><div id="n2">02 LINK</div><div id="n3">03 DONE</div></div>
+  <div class="card stat-grid">
+    <div class="stat" style="padding-right:12px"><label>Total aktivasi</label><b class="lime" id="st-total">1.557</b><div class="sub">+12% minggu ini</div></div>
+    <div style="background:var(--border);height:42px;width:1px"></div>
+    <div class="stat" style="padding-left:16px;text-align:right"><label>Hari ini</label><b id="st-today">0</b><div class="sub">real-time</div></div>
   </div>
-</div>
-
-<div class="panel" id="p1">
-  <h2>masukkan email</h2>
-  <p class="hint">link login dikirim ke email, tanpa password.</p>
-  <label>email address</label>
-  <input id="em" type="email" placeholder="nama@email.com" autocomplete="email">
-  <button id="b1" style="width:100%;margin-top:14px">kirim link →</button>
-  <div id="m1" class="msg"></div>
-</div>
-
-<div class="panel hide" id="p2">
-  <h2>tempel link</h2>
-  <p class="hint">link terkirim ke <span id="w-em" style="color:#fff">-</span>. copy dari email.</p>
-  <label>link verifikasi</label>
-  <input id="lk" type="text" placeholder="https://... atau oobCode">
-  <div class="row">
-    <button id="b2" class="sec" style="flex:1">← kembali</button>
-    <button id="b3" style="flex:1.8">verifikasi →</button>
+  <div class="card form-card" id="p1">
+    <h2>masukkan email</h2><div class="hint">link login dikirim ke email, tanpa password.</div>
+    <div class="field"><label>Email Address</label><div class="input-wrap"><input id="em" type="email" placeholder="nama@email.com"></div></div>
+    <button id="b1" class="btn">Kirim Link →</button><div id="m1" class="msg"></div>
   </div>
-  <div id="m2" class="msg"></div>
-</div>
-
-<div class="panel hide" id="p3">
-  <h2 style="color:var(--acc)">✓ premium aktif</h2>
-  <p class="hint">akun berhasil diaktivasi, token siap pakai.</p>
-  <div class="kv"><b>email</b><span id="r-em">-</span></div>
-  <div class="kv"><b>uid</b><span id="r-uid">-</span></div>
-  <div class="kv"><b>order</b><span id="r-ord">-</span></div>
-  <div style="margin-top:14px">
-    <label>id token</label>
-    <div class="tok" id="r-tok">-</div>
-    <div class="row">
-      <button class="tiny sec" id="b4" style="flex:1">copy token</button>
-      <button class="tiny" id="b5" style="flex:1;background:var(--acc)">aktivasi lain</button>
-    </div>
+  <div class="card form-card hide" id="p2">
+    <h2>tempel link</h2><div class="hint">link terkirim ke <span id="w-em" style="color:#fff">-</span></div>
+    <div class="field"><label>Link Verifikasi</label><div class="input-wrap"><input id="lk" type="text" placeholder="https://... atau oobCode"></div></div>
+    <div class="row"><button id="b2" class="btn sec" style="flex:1">← Kembali</button><button id="b3" class="btn" style="flex:1.6">Verifikasi →</button></div>
+    <div id="m2" class="msg"></div>
   </div>
+  <div class="card form-card hide" id="p3">
+    <h2 style="color:var(--lime)">premium aktif ✓</h2><div class="hint">token siap pakai, jangan share.</div>
+    <div class="kv"><b>email</b><span id="r-em">-</span></div>
+    <div class="kv"><b>uid</b><span id="r-uid">-</span></div>
+    <div class="kv"><b>order</b><span id="r-ord">-</span></div>
+    <div style="margin-top:16px"><label style="font-family:'Geist Mono';font-size:9px;color:var(--muted);letter-spacing:.15em">ID TOKEN</label><div class="tok" id="r-tok">-</div><div class="row"><button id="b4" class="btn sec tiny" style="flex:1">Copy Token</button><button id="b5" class="btn tiny" style="flex:1">Aktivasi Lain</button></div></div>
+  </div>
+  <footer>UNOFFICIAL • REVERSE ENGINEERED • USE AT YOUR OWN RISK<br>© 2026 VINZY — BUILT IN SINGKAWANG</footer>
 </div>
-
-<footer>unofficial • reverse engineered • use at your own risk<br><span style="color:var(--acc)">●</span> vinzy 2026 • singkawang</footer>
-</div>
-
 <script>
-// === JS ASLI MU KAMEK PERTAHANIN 100% ===
-const $ = i => document.getElementById(i)
-fetch('/api/stats').then(r => r.json()).then(j => {
-  $('st-total').textContent = Number(j.total || 0).toLocaleString('id-ID')
-  $('st-today').textContent = Number(j.today || 0).toLocaleString('id-ID')
-}).catch(() => {$('st-total').textContent='1.557'; $('st-today').textContent='0'})
-const step = n => {
-  for (let i = 1; i <= 3; i++) {
-    $('p' + i).classList.toggle('hide', i !== n)
-    $('n' + i).className = i < n ? 'done' : (i === n ? 'on' : '')
-  }
+const $=i=>document.getElementById(i)
+fetch('/api/stats').then(r=>r.json()).then(j=>{
+ $('st-total').textContent=Number(j.total||1557).toLocaleString('id-ID')
+ $('st-today').textContent=Number(j.today||0).toLocaleString('id-ID')
+}).catch(()=>{})
+const step=n=>{for(let i=1;i<=3;i++){$('p'+i).classList.toggle('hide',i!==n);$('n'+i).className=i<n?'done':(i===n?'on':'')}}
+const say=(id,txt,ok)=>{const m=$(id);m.textContent=txt;m.className='msg '+(ok?'ok':'err')}
+const busy=(b,on,t)=>{b.disabled=on;if(t)b.textContent=t}
+$('b1').onclick=async()=>{
+ const em=$('em').value.trim()
+ if(!em.includes('@')) return say('m1','email gak valid jing',0)
+ const b=$('b1');busy(b,true,'MENGIRIM...')
+ try{
+  const r=await fetch('/api/send-link',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:em})})
+  const j=await r.json()
+  if(j.success){say('m1','link terkirim, cek email',1);$('w-em').textContent=em;setTimeout(()=>step(2),700)}
+  else say('m1',j.message||'gagal',0)
+ }catch{say('m1','server gak nyambung',0)}
+ busy(b,false);b.textContent='KIRIM LINK →'
 }
-const say = (id, txt, ok) => {
-  const m = $(id)
-  m.textContent = txt
-  m.className = 'msg ' + (ok ? 'ok' : 'err')
+$('b2').onclick=()=>step(1)
+$('b3').onclick=async()=>{
+ const raw=$('lk').value.trim()
+ if(!raw) return say('m2','link kosong',0)
+ const b=$('b3');busy(b,true,'VERIFIKASI...')
+ try{
+  const r=await fetch('/api/verify-link',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:$('w-em').textContent,magicLink:raw})})
+  const j=await r.json()
+  if(j.success){
+   const d=j.data;$('r-em').textContent=d.email;$('r-uid').textContent=d.uid;$('r-ord').textContent=d.orderId||'-';$('r-tok').textContent=d.idToken;window.__tok=d.idToken;step(3)
+  }else say('m2',j.message||'gagal',0)
+ }catch{say('m2','server gak nyambung',0)}
+ busy(b,false);b.textContent='VERIFIKASI →'
 }
-const busy = (b, on, t) => { b.disabled = on; if (t) b.textContent = t }
-$('b1').onclick = async () => {
-  const em = $('em').value.trim()
-  if (!em.includes('@')) return say('m1', 'email gak valid jing', 0)
-  const b = $('b1'); busy(b, true, 'mengirim...')
-  try {
-    const r = await fetch('/api/send-link', { method: 'POST', headers: {'content-type':'application/json'}, body: JSON.stringify({ email: em }) })
-    const j = await r.json()
-    if (j.success) { say('m1', 'link terkirim, cek email', 1); $('w-em').textContent = em; setTimeout(() => step(2), 700) }
-    else say('m1', j.message || 'gagal', 0)
-  } catch { say('m1', 'server gak nyambung', 0) }
-  busy(b, false); b.textContent = 'kirim link →'
-}
-$('b2').onclick = () => step(1)
-$('b3').onclick = async () => {
-  const raw = $('lk').value.trim()
-  if (!raw) return say('m2', 'link kosong', 0)
-  const b = $('b3'); busy(b, true, 'verifikasi...')
-  try {
-    const r = await fetch('/api/verify-link', { method: 'POST', headers: {'content-type':'application/json'}, body: JSON.stringify({ email: $('w-em').textContent, magicLink: raw }) })
-    const j = await r.json()
-    if (j.success) {
-      const d = j.data
-      $('r-em').textContent = d.email
-      $('r-uid').textContent = d.uid
-      $('r-ord').textContent = d.orderId || '-'
-      $('r-tok').textContent = d.idToken
-      window.__tok = d.idToken
-      step(3)
-    } else say('m2', j.message || 'gagal', 0)
-  } catch { say('m2', 'server gak nyambung', 0) }
-  busy(b, false); b.textContent = 'verifikasi →'
-}
-$('b4').onclick = () => { navigator.clipboard.writeText(window.__tok || ''); $('b4').textContent = 'copied ✓'; setTimeout(()=>$('b4').textContent='copy token',1500) }
-$('b5').onclick = () => { $('lk').value = ''; $('em').value=''; step(1) }
+$('b4').onclick=()=>{navigator.clipboard.writeText(window.__tok||'');$('b4').textContent='COPIED ✓';setTimeout(()=>$('b4').textContent='COPY TOKEN',1500)}
+$('b5').onclick=()=>{$('lk').value='';$('em').value='';step(1)}
 </script>
 </body>
 </html>
