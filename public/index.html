@@ -3,119 +3,117 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AM PREMIUM // by VINZY</title>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<title>am premium — by vinzy</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--lime:#C6FF00;--lime2:#A3E635;--bg:#0A0A0A;--card:#141414;--border:rgba(255,255,255,.08);--muted:#777}
+:root{--bg:#0E0E0F;--card:#161617;--card2:#1C1C1E;--border:#252528;--muted:#8A8A8E;--muted2:#555558;--lime:#D6FF57;--white:#F5F5F7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:#fff;font-family:'Syne',sans-serif;min-height:100vh;display:flex;justify-content:center;padding:20px 16px;position:relative;overflow-x:hidden}
-.bg-grid{position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse at center, black 40%, transparent 75%);opacity:.4;pointer-events:none}
-.orb{position:fixed;width:600px;height:600px;background:radial-gradient(circle, var(--lime) 0%, transparent 70%);opacity:.15;filter:blur(40px);pointer-events:none;top:-200px;left:50%;transform:translateX(-50%)}
-.wrap{width:100%;max-width:440px;position:relative;z-index:2}
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;font-family:'Geist Mono';font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
-.dot{width:6px;height:6px;background:var(--lime);border-radius:50%;display:inline-block;box-shadow:0 0 10px var(--lime);animation:blink 1s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero{margin-bottom:24px}
-.hero h1{font-size:58px;font-weight:800;letter-spacing:-.04em;line-height:.85;text-transform:uppercase}
-.hero h1 span{font-family:'Instrument Serif';font-style:italic;font-weight:400;text-transform:lowercase;color:var(--lime);display:block;font-size:46px;margin-top:-4px;letter-spacing:-.02em}
-.hero p{font-family:'Geist Mono';font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6;max-width:280px}
-.badge{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#000;font-family:'Geist Mono';font-weight:700;font-size:10px;padding:8px 14px;border-radius:100px;margin-top:16px;letter-spacing:.05em}
-.steps{display:flex;gap:6px;margin:24px 0}
-.steps div{flex:1;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:11px 0;text-align:center;font-family:'Geist Mono';font-size:10px;font-weight:500;color:var(--muted);letter-spacing:.08em;transition:.3s}
-.steps div.on{background:var(--lime);color:#000;border-color:var(--lime);font-weight:700;box-shadow:0 0 20px rgba(198,255,0,.4)}
-.steps div.done{background:rgba(198,255,0,.1);border-color:rgba(198,255,0,.2);color:var(--lime)}
-.card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:24px;padding:20px;position:relative;overflow:hidden;margin-bottom:12px}
-.card::before{content:'';position:absolute;top:0;left:16px;right:16px;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent)}
-.stat-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:0;align-items:center}
-.stat b{font-size:32px;font-weight:800;letter-spacing:-.03em;font-family:'Syne';line-height:1}
-.stat b.lime{color:var(--lime)}
-.stat label{font-family:'Geist Mono';font-size:9px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:4px}
-.stat .sub{font-family:'Geist Mono';font-size:10px;color:var(--muted);margin-top:2px}
-.form-card{padding:24px}
-.form-card h2{font-size:20px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
-.form-card .hint{font-family:'Geist Mono';font-size:11px;color:var(--muted);margin-bottom:20px}
-.field label{font-family:'Geist Mono';font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
-.input-wrap{position:relative}
-.input-wrap input{width:100%;background:#0E0E0E;border:1px solid var(--border);color:#fff;font-family:'Geist Mono';font-size:13px;padding:15px 16px;border-radius:14px;outline:none;transition:.2s}
-.input-wrap input:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,255,0,.15);background:#111}
-.btn{width:100%;background:var(--lime);color:#000;border:none;font-family:'Geist Mono';font-weight:700;font-size:12px;letter-spacing:.05em;padding:15px;border-radius:14px;margin-top:14px;cursor:pointer;transition:.2s;text-transform:uppercase}
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(198,255,0,.35);filter:brightness(1.05)}
-.btn:active{transform:translateY(0)}
-.btn.sec{background:transparent;color:var(--muted);border:1px solid var(--border)}
-.msg{font-family:'Geist Mono';font-size:11px;padding:10px 12px;border-radius:10px;margin-top:12px;display:none}
-.msg.err{display:block;background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.2);color:#ff6b6b}
-.msg.ok{display:block;background:rgba(198,255,0,.08);border:1px solid rgba(198,255,0,.2);color:var(--lime)}
-.kv{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-family:'Geist Mono';font-size:11px}
-.kv b{color:var(--muted);font-weight:400;font-size:9px;text-transform:uppercase;letter-spacing:.1em}
-.kv span{max-width:60%;text-align:right;word-break:break-all}
-.tok{background:#0E0E0E;border:1px solid var(--border);padding:12px;border-radius:12px;font-size:9px;color:var(--muted);word-break:break-all;line-height:1.6;max-height:84px;overflow:hidden;font-family:'Geist Mono'}
+body{background:var(--bg);color:var(--white);font-family:'Geist',sans-serif;min-height:100vh;display:flex;justify-content:center;padding:28px 16px;-webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:420px}
+.header{margin-bottom:28px}
+.header-top{font-family:'Geist Mono';font-size:10px;color:var(--muted2);letter-spacing:.14em;display:flex;justify-content:space-between;text-transform:uppercase;margin-bottom:20px}
+.logo{font-family:'Geist Mono';font-size:11px;letter-spacing:-.02em;font-weight:500}
+.logo b{color:var(--white)} .logo span{color:var(--muted)}
+.logo i{font-style:normal;color:var(--lime)}
+.hero h1{font-size:28px;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.hero p{font-size:14px;color:var(--muted);margin-top:10px;line-height:1.5;font-weight:400;max-width:320px}
+.live{display:inline-flex;gap:6px;align-items:center;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:6px 10px;margin-top:16px;font-family:'Geist Mono';font-size:11px;color:var(--muted)}
+.live-dot{width:5px;height:5px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e}
+.steps{display:flex;gap:8px;margin:28px 0 20px}
+.steps div{height:32px;flex:1;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--border);border-radius:999px;font-family:'Geist Mono';font-size:11px;color:var(--muted2);transition:.2s}
+.steps div.on{background:var(--white);color:#000;border-color:var(--white);font-weight:500}
+.steps div.done{color:var(--white);border-color:#333}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin-bottom:12px}
+.stats{display:flex;justify-content:space-between}
+.stat label{font-family:'Geist Mono';font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);display:block;margin-bottom:6px}
+.stat b{font-size:24px;font-weight:600;letter-spacing:-.03em}
+.stat b.accent{color:var(--white)}
+.stat small{font-family:'Geist Mono';font-size:11px;color:var(--muted);display:block;margin-top:2px}
+.divider{width:1px;background:var(--border);margin:0 16px}
+.form{padding:20px}
+.form h2{font-size:15px;font-weight:600;letter-spacing:-.02em}
+.form .hint{font-size:13px;color:var(--muted);margin:6px 0 18px;line-height:1.4}
+.label{font-family:'Geist Mono';font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;display:block}
+.input{width:100%;background:#0F0F10;border:1px solid var(--border);color:var(--white);font-family:'Geist Mono';font-size:13px;padding:12px 14px;border-radius:10px;outline:none;transition:.15s}
+.input:focus{border-color:#3A3A3E;background:#111112}
+.input::placeholder{color:#3A3A3E}
+.btn{width:100%;background:var(--white);color:#000;border:none;font-size:13px;font-weight:600;padding:12px;border-radius:10px;cursor:pointer;transition:.15s;margin-top:14px;font-family:'Geist';letter-spacing:-.01em}
+.btn:hover{background:#EAEAEA}
+.btn:disabled{opacity:.5}
+.btn.sec{background:var(--card2);color:var(--muted);border:1px solid var(--border)}
+.btn.sec:hover{background:#222225;color:var(--white)}
+.msg{font-family:'Geist Mono';font-size:11px;padding:9px 11px;border-radius:8px;margin-top:12px;display:none;line-height:1.4}
+.msg.err{display:block;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.18);color:#f87171}
+.msg.ok{display:block;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.18);color:#4ade80}
+.kv{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-family:'Geist Mono';font-size:11px}
+.kv b{color:var(--muted2);font-weight:400;text-transform:uppercase;font-size:10px}
+.kv span{color:var(--white);max-width:60%;text-align:right;word-break:break-all}
+.tok{background:#0F0F10;border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-family:'Geist Mono';font-size:10px;color:var(--muted);word-break:break-all;line-height:1.5;max-height:80px;overflow:hidden}
 .row{display:flex;gap:8px;margin-top:12px}
-.tiny{padding:10px 14px;border-radius:100px;font-size:10px;font-weight:700;font-family:'Geist Mono';text-transform:uppercase}
-footer{margin-top:32px;text-align:center;font-family:'Geist Mono';font-size:9px;color:#2a2a2a;letter-spacing:.08em;line-height:1.8}
+.tiny{font-size:11px;padding:9px 14px;border-radius:8px;font-weight:500}
+footer{margin-top:36px;text-align:center;font-family:'Geist Mono';font-size:10px;color:var(--muted2);line-height:1.6}
 .hide{display:none!important}
 </style>
 </head>
 <body>
-<div class="bg-grid"></div><div class="orb"></div>
 <div class="wrap">
-  <div class="topbar"><span><span class="dot"></span> VINZYSTUR.MY.ID — EST 2024</span><span>SINGKAWANG • ID</span></div>
-  <div class="hero">
-    <h1>AM PREM<span style="color:var(--lime)">IUM</span><span>by vinzy</span></h1>
-    <p>magic link activation system — bypass without password, direct alight motion server.</p>
-    <div class="badge">● LIVE — 1.557+ ACTIVATED</div>
-  </div>
-  <div class="steps"><div id="n1" class="on">01 EMAIL</div><div id="n2">02 LINK</div><div id="n3">03 DONE</div></div>
-  <div class="card stat-grid">
-    <div class="stat" style="padding-right:12px"><label>Total aktivasi</label><b class="lime" id="st-total">1.557</b><div class="sub">+12% minggu ini</div></div>
-    <div style="background:var(--border);height:42px;width:1px"></div>
-    <div class="stat" style="padding-left:16px;text-align:right"><label>Hari ini</label><b id="st-today">0</b><div class="sub">real-time</div></div>
-  </div>
-  <div class="card form-card" id="p1">
-    <h2>masukkan email</h2><div class="hint">link login dikirim ke email, tanpa password.</div>
-    <div class="field"><label>Email Address</label><div class="input-wrap"><input id="em" type="email" placeholder="nama@email.com"></div></div>
-    <button id="b1" class="btn">Kirim Link →</button><div id="m1" class="msg"></div>
-  </div>
-  <div class="card form-card hide" id="p2">
-    <h2>tempel link</h2><div class="hint">link terkirim ke <span id="w-em" style="color:#fff">-</span></div>
-    <div class="field"><label>Link Verifikasi</label><div class="input-wrap"><input id="lk" type="text" placeholder="https://... atau oobCode"></div></div>
-    <div class="row"><button id="b2" class="btn sec" style="flex:1">← Kembali</button><button id="b3" class="btn" style="flex:1.6">Verifikasi →</button></div>
-    <div id="m2" class="msg"></div>
-  </div>
-  <div class="card form-card hide" id="p3">
-    <h2 style="color:var(--lime)">premium aktif ✓</h2><div class="hint">token siap pakai, jangan share.</div>
-    <div class="kv"><b>email</b><span id="r-em">-</span></div>
-    <div class="kv"><b>uid</b><span id="r-uid">-</span></div>
-    <div class="kv"><b>order</b><span id="r-ord">-</span></div>
-    <div style="margin-top:16px"><label style="font-family:'Geist Mono';font-size:9px;color:var(--muted);letter-spacing:.15em">ID TOKEN</label><div class="tok" id="r-tok">-</div><div class="row"><button id="b4" class="btn sec tiny" style="flex:1">Copy Token</button><button id="b5" class="btn tiny" style="flex:1">Aktivasi Lain</button></div></div>
-  </div>
-  <footer>UNOFFICIAL • REVERSE ENGINEERED • USE AT YOUR OWN RISK<br>© 2026 VINZY — BUILT IN SINGKAWANG</footer>
+<div class="header">
+<div class="header-top"><span>vinzystur.my.id</span><span>Singkawang • 2026</span></div>
+<div class="logo"><b>am</b> <span>/</span> <i>activate</i> <span>by vinzy</span></div>
+<div class="hero" style="margin-top:14px"><h1>Alight Motion<br>Premium Access</h1><p>Magic link activation. No password, direct verification.</p><div class="live"><span class="live-dot"></span> system active • 1.557 users onboarded</div></div>
+</div>
+<div class="steps"><div id="n1" class="on">01 Email</div><div id="n2">02 Link</div><div id="n3">03 Done</div></div>
+<div class="card stats">
+<div class="stat"><label>Total aktivasi</label><b id="st-total" class="accent">1.557</b><small id="st-today-sub" style="display:none"></small></div>
+<div class="divider"></div>
+<div class="stat" style="text-align:right"><label>Hari ini</label><b id="st-today">0</b><small>real-time</small></div>
+</div>
+<div class="card form" id="p1">
+<h2>Masukkan email</h2><div class="hint">Link login dikirim ke email, tanpa password.</div>
+<span class="label">Email address</span><input id="em" class="input" type="email" placeholder="nama@email.com">
+<button id="b1" class="btn">Kirim link →</button><div id="m1" class="msg"></div>
+</div>
+<div class="card form hide" id="p2">
+<h2>Tempel link</h2><div class="hint">Link terkirim ke <span id="w-em" style="color:var(--white)">-</span>. Copy dari email.</div>
+<span class="label">Link verifikasi</span><input id="lk" class="input" type="text" placeholder="https://... atau oobCode">
+<div class="row"><button id="b2" class="btn sec" style="flex:1">Kembali</button><button id="b3" class="btn" style="flex:1.5">Verifikasi →</button></div>
+<div id="m2" class="msg"></div>
+</div>
+<div class="card form hide" id="p3">
+<h2 style="color:#4ade80">Premium aktif</h2><div class="hint">Akun berhasil diaktivasi.</div>
+<div class="kv"><b>email</b><span id="r-em">-</span></div>
+<div class="kv"><b>uid</b><span id="r-uid">-</span></div>
+<div class="kv"><b>order</b><span id="r-ord">-</span></div>
+<div style="margin-top:14px"><span class="label">ID Token</span><div class="tok" id="r-tok">-</div><div class="row"><button id="b4" class="btn sec tiny" style="flex:1">Copy token</button><button id="b5" class="btn tiny" style="flex:1">Aktivasi lain</button></div></div>
+</div>
+<footer>unofficial • reverse engineered • use at your own risk<br>© vinzy 2026</footer>
 </div>
 <script>
 const $=i=>document.getElementById(i)
 fetch('/api/stats').then(r=>r.json()).then(j=>{
  $('st-total').textContent=Number(j.total||1557).toLocaleString('id-ID')
  $('st-today').textContent=Number(j.today||0).toLocaleString('id-ID')
-}).catch(()=>{})
+}).catch(()=>{$('st-total').textContent='1.557';$('st-today').textContent='0'})
 const step=n=>{for(let i=1;i<=3;i++){$('p'+i).classList.toggle('hide',i!==n);$('n'+i).className=i<n?'done':(i===n?'on':'')}}
 const say=(id,txt,ok)=>{const m=$(id);m.textContent=txt;m.className='msg '+(ok?'ok':'err')}
 const busy=(b,on,t)=>{b.disabled=on;if(t)b.textContent=t}
 $('b1').onclick=async()=>{
  const em=$('em').value.trim()
- if(!em.includes('@')) return say('m1','email gak valid jing',0)
- const b=$('b1');busy(b,true,'MENGIRIM...')
+ if(!em.includes('@')) return say('m1','email gak valid',0)
+ const b=$('b1');busy(b,true,'Mengirim...')
  try{
   const r=await fetch('/api/send-link',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:em})})
   const j=await r.json()
-  if(j.success){say('m1','link terkirim, cek email',1);$('w-em').textContent=em;setTimeout(()=>step(2),700)}
+  if(j.success){say('m1','Link terkirim, cek email',1);$('w-em').textContent=em;setTimeout(()=>step(2),600)}
   else say('m1',j.message||'gagal',0)
  }catch{say('m1','server gak nyambung',0)}
- busy(b,false);b.textContent='KIRIM LINK →'
+ busy(b,false);b.textContent='Kirim link →'
 }
 $('b2').onclick=()=>step(1)
 $('b3').onclick=async()=>{
  const raw=$('lk').value.trim()
  if(!raw) return say('m2','link kosong',0)
- const b=$('b3');busy(b,true,'VERIFIKASI...')
+ const b=$('b3');busy(b,true,'Verifikasi...')
  try{
   const r=await fetch('/api/verify-link',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:$('w-em').textContent,magicLink:raw})})
   const j=await r.json()
@@ -123,9 +121,9 @@ $('b3').onclick=async()=>{
    const d=j.data;$('r-em').textContent=d.email;$('r-uid').textContent=d.uid;$('r-ord').textContent=d.orderId||'-';$('r-tok').textContent=d.idToken;window.__tok=d.idToken;step(3)
   }else say('m2',j.message||'gagal',0)
  }catch{say('m2','server gak nyambung',0)}
- busy(b,false);b.textContent='VERIFIKASI →'
+ busy(b,false);b.textContent='Verifikasi →'
 }
-$('b4').onclick=()=>{navigator.clipboard.writeText(window.__tok||'');$('b4').textContent='COPIED ✓';setTimeout(()=>$('b4').textContent='COPY TOKEN',1500)}
+$('b4').onclick=()=>{navigator.clipboard.writeText(window.__tok||'');$('b4').textContent='Copied ✓';setTimeout(()=>$('b4').textContent='Copy token',1500)}
 $('b5').onclick=()=>{$('lk').value='';$('em').value='';step(1)}
 </script>
 </body>
